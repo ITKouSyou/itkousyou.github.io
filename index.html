@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="黄翔 - 全栈开发工程师，9年工作经验，Vue/Java/Python技术栈">
+    <meta name="keywords" content="黄翔,前端开发,全栈开发,Vue,Java,Python,DevOps,Docker,Kubernetes">
+    <title>黄翔 - 全栈开发工程师</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 40px 30px;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.9);
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        .header-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header-info h2 {
+            font-size: 1.3em;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        .basic-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 25px;
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .basic-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .main-content {
+            padding: 40px 50px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        h3.section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+        }
+
+        h3.section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            background: #764ba2;
+        }
+
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .advantage-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 15px 18px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .advantage-item strong {
+            color: #667eea;
+        }
+
+        .work-item, .project-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .work-item:hover, .project-item:hover {
+            border-left-color: #667eea;
+            background: #f9f9ff;
+            padding-left: 25px;
+        }
+
+        .work-item h4, .project-item h4 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .work-item .company, .project-item .role {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .work-item .period, .project-item .period {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .work-item ul, .project-item ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .work-item li, .project-item li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .work-item li::before, .project-item li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9em;
+            border-bottom: 1px dashed #667eea;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+            border-bottom-style: solid;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 18px 22px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .education-item h4 {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .education-item .school {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1.05em;
+            margin-bottom: 5px;
+        }
+
+        .education-item .period {
+            color: #999;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .education-item .activity {
+            margin-top: 10px;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .education-item .activity strong {
+            color: #667eea;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #f9f9f9;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            header {
+                background: #667eea;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .basic-info {
+                justify-content: center;
+            }
+            .main-content {
+                padding: 30px 25px;
+            }
+            h3.section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <img src="https://space-static.coze.site/coze_space/7616058619758398404/upload/id-3.png?sign=1775843832-1c563072ad-0-1d5538aaa18d4dfe7c9c02efa166ab16a2e80eed4051a1fe1d9e6ce0fef758ce" alt="黄翔" class="avatar">
+                <div class="header-info">
+                    <h1>黄翔</h1>
+                    <h2>全栈开发工程师</h2>
+                    <div class="basic-info">
+                        <span>👨‍💻 9年工作经验</span>
+                        <span>📍 杭州求职</span>
+                        <span>🎓 本科学历</span>
+                        <span>📞 15168300830</span>
+                        <span>✉️ 765287443@qq.com</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <section>
+                <h3 class="section-title">个人优势</h3>
+                <div class="advantage-grid">
+                    <div class="advantage-item">
+                        <strong>前端技术：</strong>Vue、微信小程序、WebSocket、Redis、浏览器插件、Nginx、前端组件化开发，具备从0到1独立开发整个前端项目的能力
+                    </div>
+                    <div class="advantage-item">
+                        <strong>后端技术：</strong>Java、Python、Django、Spring、Maven、MyBatis、OSS、MQ
+                    </div>
+                    <div class="advantage-item">
+                        <strong>数据分析与爬虫：</strong>NumPy、XPath、Python爬虫
+                    </div>
+                    <div class="advantage-item">
+                        <strong>DevOps：</strong>Docker、Kubernetes、Jenkins使用经验
+                    </div>
+                    <div class="advantage-item">
+                        <strong>调试工具：</strong>熟练使用Fiddler和Chrome开发者工具进行接口调试分析
+                    </div>
+                    <div class="advantage-item">
+                        <strong>AI相关：</strong>了解Agent概念、Function Calling机制、ReAct运行模式、Plan And Execute运行模式、LangChain框架
+                    </div>
+                    <div class="advantage-item">
+                        <strong>思维特点：</strong>逻辑思维和解决问题能力强，具备全栈开发视角
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title">工作经历</h3>
+                
+                <div class="work-item">
+                    <h4>浙江签盾科技有限公司</h4>
+                    <div class="company">前端开发工程师</div>
+                    <div class="period">2018.09 - 2025.07</div>
+                    <ul>
+                        <li>独立负责签盾所有Web端页面项目的开发与维护</li>
+                        <li>负责管理后台系统、SaaS前端页面、Web端聊天功能的开发</li>
+                        <li>使用Java进行数据爬取和搜集工作</li>
+                        <li>主导服务系统重构，实现前后端分离</li>
+                        <li>对接第三方风控、OCR等服务</li>
+                        <li>接手并维护签盾小程序端</li>
+                        <li>2019年9月开始独自负责所有Web端项目，<a href="https://share.note.youdao.com/s/SpcmBtVJ" class="project-link" target="_blank">项目预览地址</a></li>
+                        <li>前期负责Java后端工作，后期因公司需求转向前端开发，具备前后端双重经验</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Vue</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Spring</span>
+                        <span class="tech-tag">Maven</span>
+                        <span class="tech-tag">MyBatis</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">OSS</span>
+                        <span class="tech-tag">MQ</span>
+                        <span class="tech-tag">Nginx</span>
+                        <span class="tech-tag">MPX</span>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <h4>杭州尚学科技有限公司</h4>
+                    <div class="company">研发工程师</div>
+                    <div class="period">2017.03 - 2018.04</div>
+                    <ul>
+                        <li>使用Python开发读报系统功能模块，包括后台编辑工具替换、天气预报功能、PPT/图片轮播显示</li>
+                        <li>使用Python编写爬虫规则</li>
+                        <li>使用Java开发公司网站风格改造、文件上传下载功能</li>
+                        <li>使用C#开发本地报纸显示功能、本地信息读取功能</li>
+                        <li>负责触摸屏设备维护、软件安装、远程技术支持等工作</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title">项目经历</h3>
+                
+                <div class="project-item">
+                    <h4>微信小程序 - 乃木恋云图鉴</h4>
+                    <div class="role">独立开发</div>
+                    <div class="period">2019.09 - 2019.10</div>
+                    <p style="margin-bottom: 12px; color: #555;">使用Python抓取游戏图片资源，抓取成员博客并处理成微信云开发可用数据结构。</p>
+                    <ul>
+                        <li>申请微信小程序账号，完成代码开发</li>
+                        <li>数据和资源的存储与发布</li>
+                        <li>开发JS小游戏功能</li>
+                        <li>添加在线客服功能</li>
+                        <li>持续更新数据和资源</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <h4>签盾Web前端开发</h4>
+                    <div class="role">核心开发</div>
+                    <div class="period">2019.10 - 2025.07</div>
+                    <p style="margin-bottom: 12px; color: #555;">用户线上签合同使用的PC端页面。</p>
+                    <ul>
+                        <li>基于Vue 3.11.0，使用Element-UI、Axios、vue-draggable-resizable-gorkys、vuedraggable等核心依赖</li>
+                        <li>实现合同签章位置及内容位置的自定义拖动定位功能</li>
+                        <li>负责需求评审、设计评审、技术评审、测试用例评审全流程</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Vue 3.11.0</span>
+                        <span class="tech-tag">Element-UI</span>
+                        <span class="tech-tag">Axios</span>
+                        <span class="tech-tag">vue-draggable</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h4>树大教工即时通讯系统</h4>
+                    <div class="role">开发</div>
+                    <div class="period">2017.03 - 2017.06</div>
+                    <p style="margin-bottom: 12px; color: #555;">基于SSH框架和WebSocket实现的即时通讯系统。</p>
+                    <ul>
+                        <li>单聊、群聊功能</li>
+                        <li>表情发送</li>
+                        <li>文件上传下载</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title">教育经历</h3>
+                
+                <div class="education-item">
+                    <h4>计算机科学与技术 | 本科</h4>
+                    <div class="school">浙江树人大学</div>
+                    <div class="period">2013 - 2017</div>
+                    <div class="activity">
+                        <strong>校园经历：</strong>担任学校轮滑社副社长一年
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>© 2026 黄翔 | 全栈开发工程师</p>
+            <p>
+                <a href="mailto:765287443@qq.com">📧 联系邮箱</a>
+                <a href="tel:15168300830">📞 电话联系</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
