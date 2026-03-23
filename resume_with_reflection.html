@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简历 - ITKouSyou</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0;
+            background: #f5f7fa;
+        }
+        .container {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 30px auto;
+            padding: 40px;
+            border-radius: 8px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 25px;
+            border-bottom: 3px solid #1e3a5f;
+            margin-bottom: 35px;
+        }
+        .name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1e3a5f;
+        }
+        .title {
+            font-size: 18px;
+            color: #4a90e2;
+            font-weight: 500;
+        }
+        .contact {
+            text-align: right;
+            font-size: 13px;
+            color: #666;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1e3a5f;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f4fd;
+        }
+        .item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: #4a90e2;
+            border-radius: 50%;
+        }
+        .skill-item {
+            background: #e8f4fd;
+            padding: 10px;
+            display: inline-block;
+            margin: 5px;
+            border-radius: 6px;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        .skill-item:hover {
+            background: #4a90e2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="name">ITKouSyou</div>
+                <div class="title">资深Python工程师</div>
+            </div>
+            <div class="contact">
+                📧 itkousyou@example.com<br>📱 138-0000-0000
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">基本信息</div>
+            <div class="item">
+                <div class="item-title">姓名</div>
+                <div class="item-desc">ITKouSyou</div>
+            </div>
+            <div class="item">
+                <div class="item-title">职位</div>
+                <div class="item-desc">资深Python工程师</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">工作经历</div>
+            <div class="item">
+                <div class="item-title">公司A</div>
+                <div class="item-date">2018-2021</div>
+                <div class="item-desc">高级开发工程师<br>负责核心系统开发，性能提升300%</div>
+            </div>
+            <div class="item">
+                <div class="item-title">公司B</div>
+                <div class="item-date">2021-2024</div>
+                <div class="item-desc">技术负责人<br>带领团队完成多个重要项目</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">项目经验</div>
+            <div class="item">
+                <div class="item-title">电商平台后端重构</div>
+                <div class="item-date">2022-2023</div>
+                <div class="item-desc">技术栈：Python, Django, Redis<br>成果：性能提升300%，响应时间从500ms降至50ms</div>
+            </div>
+            <div class="item">
+                <div class="item-title">AI推荐系统</div>
+                <div class="item-date">2023-2024</div>
+                <div class="item-desc">技术栈：Python, TensorFlow, Elasticsearch<br>成果：点击率提升40%，转化率提升25%</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">技能</div>
+            <div class="item">
+                <div class="item-title">编程语言</div>
+                <div class="item-desc">
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Java</span>
+                    <span class="skill-item">JavaScript</span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-title">框架</div>
+                <div class="item-desc">
+                    <span class="skill-item">Django</span>
+                    <span class="skill-item">Flask</span>
+                    <span class="skill-item">React</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">教育背景</div>
+            <div class="item">
+                <div class="item-title">本科</div>
+                <div class="item-date">2014-2018</div>
+                <div class="item-desc">XX大学 计算机科学与技术<br>GPA: 3.8/4.0，专业排名前10%</div>
+            </div>
+            <div class="item">
+                <div class="item-title">硕士</div>
+                <div class="item-date">2018-2021</div>
+                <div class="item-desc">XX大学 软件工程<br>研究方向：AI与机器学习</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
